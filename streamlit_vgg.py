@@ -37,7 +37,12 @@ def np_to_base64(img_np):
 
 
 
-model=load_model("model.h5")
+#model=load_model("model.h5")
+from keras.utils.data_utils import get_file
+weights_path = get_file(
+            'model.h5',
+            'https://drive.google.com/file/d/1XfFJOQsDBsnd0fvEhCz18IxmJdR8UmSL/view?usp=share_link')
+model = load_weights(weights_path)
 #load weights of the trained model.
 #input_shape = (224, 224, 3)
 #optim_1 = Adam(learning_rate=0.0001)
