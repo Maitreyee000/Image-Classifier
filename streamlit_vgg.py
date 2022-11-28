@@ -56,9 +56,8 @@ model=load_model('./model.h5')
 #vgg_pred_classes = np.argmax(vgg_preds, axis=1)
 
  
-st.markdown('<h1 style="color:black;">Vgg 19 Image classification model</h1>', unsafe_allow_html=True)
-st.markdown('<h2 style="color:gray;">The image classification model classifies image into following categories:</h2>', unsafe_allow_html=True)
-st.markdown('<h3 style="color:gray;"> street,  buildings, forest, sea, mountain, glacier</h3>', unsafe_allow_html=True)
+st.markdown('<h1 style="color:black;">Image Classifier</h1>', unsafe_allow_html=True)
+st.markdown('<h3 style="color:gray;"> The image classification model classifies images as either authentic or fake</h3>', unsafe_allow_html=True)
 @st.cache(allow_output_mutation=True)
 def get_base64_of_bin_file(bin_file):
     with open(bin_file, 'rb') as f:
@@ -83,7 +82,7 @@ def set_png_as_page_bg(png_file):
 
 set_png_as_page_bg('./background.webp')
 
-upload= st.file_uploader('Insert image for classification', type=['png','jpg'])
+upload= st.file_uploader('Upload image', type=['png','jpg'])
 c1, c2= st.columns(2)
 if upload is not None:
   img= Image.open(upload)
@@ -99,8 +98,8 @@ if upload is not None:
   score = tf.nn.softmax(predictions[0])
   pred_proba=100 * np.max(score)
   pred_class=class_names[np.argmax(score)]
-  c1.header('Input Image')
+  c1.header('Uploaded Image')
   c1.image(img)  
   c2.header('Output')
-  c2.subheader('Predicted class :')
+  c2.subheader('Prediction :')
   c2.write(str(pred_class))
