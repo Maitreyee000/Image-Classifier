@@ -57,6 +57,7 @@ model=load_model('./model.h5')
 
  
 st.markdown('<h1 style="color:black;">Image Classifier</h1>', unsafe_allow_html=True)
+st.markdown('<h5 style="color:gray;"> </h5>', unsafe_allow_html=True)
 st.markdown('<h5 style="color:gray;"> This image classification model classifies images as either authentic or fake</h5>', unsafe_allow_html=True)
 @st.cache(allow_output_mutation=True)
 def get_base64_of_bin_file(bin_file):
@@ -98,8 +99,7 @@ if upload is not None:
   score = tf.nn.softmax(predictions[0])
   pred_proba=100 * np.max(score)
   pred_class=class_names[np.argmax(score)]
-  c1.header('Uploaded Image')
-  c1.image(img)  
-  c2.header('Output')
+  c1.subheader('Uploaded Image')
+  c1.image(img)    
   c2.subheader('Prediction :')
-  c2.write(str(pred_class))
+  c2.subheader(str(pred_class))
