@@ -9,7 +9,7 @@ from tensorflow.keras.models import Sequential
 import pathlib
 import re
 import base64
-import cv2
+
 
 import numpy as np
 
