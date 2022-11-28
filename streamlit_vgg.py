@@ -81,7 +81,7 @@ def set_png_as_page_bg(png_file):
     st.markdown(page_bg_img, unsafe_allow_html=True)
     return
 
-set_png_as_page_bg('/content/background.webp')
+set_png_as_page_bg('./background.webp')
 
 upload= st.file_uploader('Insert image for classification', type=['png','jpg'])
 c1, c2= st.columns(2)
