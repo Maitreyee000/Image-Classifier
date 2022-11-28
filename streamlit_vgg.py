@@ -57,7 +57,7 @@ model=load_model('./model.h5')
 
  
 st.markdown('<h1 style="color:black;">Image Classifier</h1>', unsafe_allow_html=True)
-st.markdown('<h3 style="color:gray;"> The image classification model classifies images as either authentic or fake</h3>', unsafe_allow_html=True)
+st.markdown('<h5 style="color:gray;"> This image classification model classifies images as either authentic or fake</h5>', unsafe_allow_html=True)
 @st.cache(allow_output_mutation=True)
 def get_base64_of_bin_file(bin_file):
     with open(bin_file, 'rb') as f:
