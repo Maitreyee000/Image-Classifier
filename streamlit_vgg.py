@@ -100,9 +100,7 @@ if upload is not None:
   pred_proba=100 * np.max(score)
   pred_class=class_names[np.argmax(score)]
   c1.header('Input Image')
-  c1.image(img)
-  c1.write(img.shape)
-
-c2.header('Output')
-c2.subheader('Predicted class :')
-c2.write(str(pred_class))
+  c1.image(img)  
+  c2.header('Output')
+  c2.subheader('Predicted class :')
+  c2.write(str(pred_class))
