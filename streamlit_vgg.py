@@ -37,7 +37,7 @@ def np_to_base64(img_np):
 
 
 
-model=load_model("https://drive.google.com/file/d/1XfFJOQsDBsnd0fvEhCz18IxmJdR8UmSL/view?usp=share_link")
+model=load_model('./model.h5')
 #model = create_model()
 #from keras.utils.data_utils import get_file
 #weights_path = get_file(
